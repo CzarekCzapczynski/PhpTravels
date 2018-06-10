@@ -1,0 +1,9 @@
+<suite name="Home Suite">
+    <parameter name="url" value="https://www.phptravels.net/"/>
+
+    <test name="Home Test">
+        <classes>
+            <class name="HomeTest"/>
+        </classes>
+    </test>
+</suite>

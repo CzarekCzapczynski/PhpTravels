@@ -30,6 +30,7 @@ public class MainTest {
     public void after() {
 //        driver.close();
     }
+
     public static String getRandomString(int length)
     {
         String randomStr = UUID.randomUUID().toString();

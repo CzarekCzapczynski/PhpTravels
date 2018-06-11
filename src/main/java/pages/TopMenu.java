@@ -32,4 +32,10 @@ public class TopMenu extends MainPage{
         waitForJStoLoad();
         return new RegisterPage(driver);
     }
+
+    public HomePage clickLogoutLink() {
+        this.logoutLink.click();
+        waitForJStoLoad();
+        return new HomePage(driver);
+    }
 }

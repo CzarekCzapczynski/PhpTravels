@@ -1,6 +1,5 @@
 package pages;
 
-import assertions.RegisterAssertion;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -64,9 +63,9 @@ public class RegisterPage extends IndexPage{
         return this;
     }
 
-    public RegisterAssertion clickSignUpButton() {
+    public AccountPage clickSignUpButton() {
         this.signUpButton.click();
         waitForJStoLoad();
-        return new RegisterAssertion(driver);
+        return new AccountPage(driver);
     }
 }

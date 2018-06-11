@@ -4,6 +4,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import scenarios.Scenario;
 
 public abstract class MainPage {
     public WebDriver driver;
@@ -43,4 +44,7 @@ public abstract class MainPage {
         return wait.until(jQueryLoad) && wait.until(jsLoad);
     }
 
+    public <I extends MainPage, O extends MainPage> O run(Scenario<I,O> scenario){
+        return scenario.run((I) this);
+    }
 }

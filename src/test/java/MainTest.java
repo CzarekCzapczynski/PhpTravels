@@ -1,3 +1,4 @@
+import components.CalendarComponent;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -17,6 +18,7 @@ public class MainTest {
     @BeforeMethod
     @Parameters({"url"})
     public void before(String url) {
+//        new CalendarComponent(driver).pickDate(14, CalendarComponent.Month.August, 2018);
         DesiredCapabilities capabilities = DesiredCapabilities.chrome();
         try {
             driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);

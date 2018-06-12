@@ -1,5 +1,6 @@
 package pages;
 
+import components.CalendarComponent;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -64,5 +65,10 @@ public class HomePage extends IndexPage {
         this.searchButton.click();
         waitForJStoLoad();
         return new HotelsPage(driver, url);
+    }
+
+    public HomePage pickDateFromCalendar(int day, CalendarComponent.Month month, int year) {
+        new CalendarComponent(driver).pickDate(day, month, year);
+        return this;
     }
 }

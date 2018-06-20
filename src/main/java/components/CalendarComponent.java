@@ -11,8 +11,7 @@ public class CalendarComponent extends MainPage{
     @FindBy(css = "div[style*='block'] .datepicker-days .next")
     WebElement nextMonthSelectArrow;
 
-    @FindBy(css = "div[style*='block']")
-    WebElement calendar;
+    private String visibleCalendarSelector = "//*[contains(@class,'datepicker ') and contains(@style,'block')]";
 
     public CalendarComponent(WebDriver driver) {
         super(driver);
@@ -25,14 +24,14 @@ public class CalendarComponent extends MainPage{
     public void pickDate(int day, Month month, int year) {
         String monthYear = month.toString() + " " + String.valueOf(year);
 
-        while(calendar.findElements(By.xpath("//th[text()='" + monthYear + "']")).size()==0){
+        while(driver.findElements(By.xpath(visibleCalendarSelector + "//th[text()='" + monthYear + "']")).size()==0){
             clickNextMonth();
         }
         pickDay(day);
     }
 
     public void pickDay(int day) {
-        calendar.findElement(By.xpath("//td[text()='" + day + "']")).click();
+        driver.findElement(By.xpath(visibleCalendarSelector + "//td[text()='" + day + "']")).click();
     }
 
     public void clickNextMonth() {
